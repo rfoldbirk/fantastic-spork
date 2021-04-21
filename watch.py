@@ -8,7 +8,7 @@ import numpy as np
 import json
 
 
-model = cv.CascadeClassifier('training/cascade.xml')
+model = cv2.CascadeClassifier('training/cascade.xml')
 
 
 # initialize the camera and grab a reference to the raw camera capture
