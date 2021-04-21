@@ -21,7 +21,9 @@ def findAvgBest(detected):
 	avg = 0
 	for score in detected[1]:
 		avg += int( score[0] )
-	avg = avg / len(detected[1])
+
+	if not len(detected[1]) == 0:
+		avg = avg / len(detected[1])
 
 	# Overskriver gennemsnittet hvis det er specificeret
 	if average_confidence:
