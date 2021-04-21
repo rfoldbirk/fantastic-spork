@@ -13,6 +13,9 @@ average_confidence = False
 model = cv2.CascadeClassifier('training/cascade.xml')
 
 
+def jd(arr):
+	return json.dumps( arr.tolist() )
+
 def findAvgBest(detected):
 	# Beregner gennemsnittet
 	avg = 0
