@@ -65,6 +65,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 	best_rectangles = findAvgBest(dms)
 
 	for elem in best_rectangles:
+		print(elem)
 		bp = (elem["rect"][0], elem["rect"][1])
 		ep = (elem["rect"][2], elem["rect"][3])
 		print(bp, ep)
