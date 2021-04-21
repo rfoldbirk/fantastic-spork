@@ -1,3 +1,5 @@
 const { execSync } = require('child_process')
-const string = process.argv[2].split('').join(' ')
+let string = process.argv[2].split('').join(' ')
+string.replace(' : d ', ' 0xff08 ')
+string.replace(' : r ', ' 0xff0d ')
 execSync(`DISPLAY=:0 xdotool key ${ string }`)
