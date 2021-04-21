@@ -66,13 +66,15 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 
 	# Detection
 	dms = model.detectMultiScale2(image)
-	best_rectangles = findAvgBest(dms)
 
-	for elem in best_rectangles:
+	for elem in findAvgBest(dms):
 		_dict = json.loads( elem["rect"] )
-		bp = (_dict[0], _dict[1])
-		ep = (_dict[2], _dict[3])
-		image = cv2.rectangle(image, bp, ep, (255, 0, 0), 2)
+		score = json.loads( elem["confidence"] )
+
+		if int(score) > 500:
+			bp = (_dict[0], _dict[1])
+			ep = (_dict[2], _dict[3])
+			image = cv2.rectangle(image, bp, ep, (255, 0, 0), 2)
 	
 
 	# show the frame
