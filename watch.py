@@ -14,12 +14,10 @@ time.sleep(0.2) # allow the camera to warmup
 
 # cv.waitKey(0)
 
-camera.capture(rawCapture, format="bgr")
-image = rawCapture.array
-cv.imshow("Image", image)
 
-cv.waitKey(0)
 
-# while True:
-
-# 	time.sleep(2)
+for i in range(10):
+	camera.capture(rawCapture, format="bgr")
+	image = rawCapture.array
+	cv.imshow("Image", image)
+	time.sleep(2)
