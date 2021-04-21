@@ -3,7 +3,7 @@ from picamera import PiCamera
 import time
 import sys
 import os
-import cv2 as cv
+import cv2
 import numpy as np
 import json
 
@@ -29,8 +29,8 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 	# Detection
 	image = cv2.rectangle(image, (10, 10), (50, 50), (255, 0, 0), 2)
 	# show the frame
-	cv.imshow("Frame", image)
-	key = cv.waitKey(1) & 0xFF
+	cv2.imshow("Frame", image)
+	key = cv2.waitKey(1) & 0xFF
 	# clear the stream in preparation for the next frame
 	rawCapture.truncate(0)
 	# if the `q` key was pressed, break from the loop
