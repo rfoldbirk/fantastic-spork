@@ -7,6 +7,8 @@ import cv2
 import numpy as np
 import json
 
+average_confidence = False
+
 
 model = cv2.CascadeClassifier('training/cascade.xml')
 
