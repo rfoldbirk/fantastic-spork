@@ -28,6 +28,8 @@ def findAvgBest(detected):
 	# Overskriver gennemsnittet hvis det er specificeret
 	if average_confidence:
 		avg = average_confidence
+
+	if avg < 15: avg = 1000
 	
 	# Vælger 
 	selected_indexes = []
@@ -70,7 +72,6 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 		_dict = json.loads( elem["rect"] )
 		bp = (_dict[0], _dict[1])
 		ep = (_dict[2], _dict[3])
-		print(bp, ep)
 		image = cv2.rectangle(image, bp, ep, (255, 0, 0), 2)
 	
 
