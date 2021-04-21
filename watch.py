@@ -10,15 +10,16 @@ import json
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
 rawCapture = PiRGBArray(camera)
-time.sleep(0.1) # allow the camera to warmup
+time.sleep(0.2) # allow the camera to warmup
 
 # cv.waitKey(0)
 
+camera.capture(rawCapture, format="bgr")
+image = rawCapture.array
+cv.imshow("Image", image)
 
-while True:
-	camera.capture(rawCapture, format="bgr")
-	image = rawCapture.array
+cv.waitKey(0)
 
-	cv.imshow("Image", image)
+# while True:
 
-	time.sleep(2)
+# 	time.sleep(2)
